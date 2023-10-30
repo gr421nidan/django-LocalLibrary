@@ -1,6 +1,7 @@
 from django.shortcuts import render
-
+from django.views import generic
 from .models import Book, Author, BookInstance, Genre
+
 
 def index(request):
     """View function for home page of site."""
@@ -26,11 +27,22 @@ def index(request):
     return render(request, 'index.html', context=context)
 
 
-from django.views import generic
-
 class BookListView(generic.ListView):
     model = Book
+    paginate_by = 10
+
 
 class BookDetailView(generic.DetailView):
     model = Book
 
+
+
+class AuthorListView(generic.ListView):
+    """Generic class-based list view for a list of authors."""
+    model = Author
+    paginate_by = 10
+
+
+class AuthorDetailView(generic.DetailView):
+    """Generic class-based detail view for an author."""
+    model = Author
