@@ -12,6 +12,7 @@ class Genre(models.Model):
 
 class Book(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
+    objects = None
     title = models.CharField(max_length=200)
 
     # Foreign Key used because book can only have one author, but authors can have multiple books
