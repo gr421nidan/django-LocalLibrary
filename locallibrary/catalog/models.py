@@ -1,8 +1,6 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
-
-
 from datetime import date
 
 class Genre(models.Model):
@@ -93,7 +91,7 @@ class Author(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     date_of_birth = models.DateField(null=True, blank=True)
-    date_of_death = models.DateField('Died', null=True, blank=True)
+    date_of_death = models.DateField('died', null=True, blank=True)
 
     class Meta:
         ordering = ['last_name', 'first_name']
